@@ -891,6 +891,7 @@ impl<R: Read> ElementReader<Map> for TmxReader<R> {
                 let color = Color::from_str(value)?;
                 map.set_background_color(color);
             }
+            "nextlayerid" => {}
             "nextobjectid" => {
                 let next_object_id = reader::read_num(value)?;
                 map.set_next_object_id(next_object_id);
@@ -933,6 +934,7 @@ impl<R: Read> ElementReader<Map> for TmxReader<R> {
 impl<R: Read> ElementReader<Layer> for TmxReader<R> {
     fn read_attributes(&mut self, layer: &mut Layer, name: &str, value: &str) -> ::Result<()> {
         match name {
+            "id" => {}
             "name" => {
                 layer.set_name(value);
             }

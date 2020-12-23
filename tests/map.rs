@@ -31,3 +31,8 @@ fn after_reading_valid_tsx_file_expect_valid_tileset() {
     assert_eq!(image.height(), 480);
 }
 
+#[test]
+fn can_read_1_4_3_sample() {
+    let result = tmx::Map::open("data/1_4_3_sample.tmx");
+    assert_matches!(result, Ok(tmx::Map {..}));
+}
