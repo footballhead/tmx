@@ -1061,6 +1061,7 @@ impl<R: Read> ElementReader<ImageLayer> for TmxReader<R> {
 impl<R: Read> ElementReader<ObjectGroup> for TmxReader<R> {
     fn read_attributes(&mut self, object_group: &mut ObjectGroup, name: &str, value: &str) -> ::Result<()> {
         match name {
+            "id" => {}
             "name" => {
                 object_group.set_name(value);
             }
